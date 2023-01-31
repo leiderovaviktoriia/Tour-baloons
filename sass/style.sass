@@ -1,0 +1,1028 @@
+$color-white: #ffffff
+$color-grey: #777777
+$color-grey-dark: #383838
+$color-black: #000000
+
+$color-background: #f7f7f7
+$color-brown-light: #c3956a
+$color-brown-dark: #A14F03
+
+//Кнопки
+$color-btn-active: #eeeeed
+$box-shadow: 3px 3px 4px #7e7e7e80
+$inner-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, .3)
+
+//Заголовки
+$shadow-h2: 0px 4px 4px rgba(0, 0, 0, 0.25)
+$color-gradient: linear-gradient(90deg, $color-brown-light 3.65%, $color-brown-dark 100%)
+
+//Градиент
+$color-book: linear-gradient(105deg, rgba(255,255,255,0.9), rgba(255,255,255,0.9) 55%, rgba(195,149,106,0.2) 55.1%, rgba(195,149,106,0.2)), url(../img/form-background.jpg) center / cover no-repeat
+
+$color-gradient-black: linear-gradient(90deg, rgba($color-brown-light, 0.7) 0.03%, rgba($color-black, 0.7) 99.94%)
+
+$color-gradient-90: linear-gradient(90deg,$color-brown-light,$color-brown-dark)
+
+$color-gradient-120: linear-gradient(120deg,$color-brown-light,$color-brown-dark)
+
+//Формы
+$color-valid-form: #3cdb37
+$color-invalid-form: #D76363
+
+@mixin color-gradient
+    background: $color-gradient
+    -webkit-background-clip: text
+    color: transparent
+
+@mixin style-link
+    text-transform: uppercase
+    text-decoration: none
+
+@mixin video-gradient
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    margin: 0
+
+.margin-bottom-10px
+    margin-bottom: 1rem
+
+.margin-bottom-20px
+    margin-bottom: 2rem
+
+.margin-bottom-30px
+    margin-bottom: 3rem
+
+.margin-bottom-40px
+    margin-bottom: 4rem
+
+.margin-bottom-50px
+    margin-bottom: 5rem
+
+.margin-bottom-60px
+    margin-bottom: 6rem
+
+.margin-bottom-80px
+    margin-bottom: 8rem
+
+.padding-top-80px
+    padding-top: 8rem
+
+.padding-bottom-80px
+    padding-bottom: 8rem
+
+.container_color
+    background-color: $color-background
+    position: relative
+    z-index: 0
+
+.container_size   //row
+    max-width: 114rem
+    margin: 0 auto
+
+.container_wrapper
+    display: flex
+    justify-content: space-between
+    width: 100%
+
+.text-align
+    text-align: center
+
+*, ::after, ::before
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+html
+    // font-size: 10px
+    // 10px : 16px (по умолчанию) * 100 = 62.5%
+    // для изменения размера шрифта для слабовидящих 
+    font-size: 62.5%
+
+body
+    font-family: "Roboto", sans-serif
+    font-weight: 400
+    font-size: 1.6rem
+    color: $color-grey
+    letter-spacing: .2rem
+    padding: 3rem
+    background: $color-white
+
+.header
+    position: relative
+    /*высота во весь экран*/
+    height: 95vh
+    background: $color-gradient-black, url(../img/background-1.jpg) center / cover no-repeat
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%)
+    @media (min-resolution: 192dpi) and (min-width: 670px), (min-width: 1340px)  // dots per inch
+        background: $color-gradient-black, url(../img/background-1-big.jpg) center / cover no-repeat
+    &__logo
+        position: absolute
+        top: 4rem
+        left: 4rem
+        width: 8rem
+        height: 9rem
+        transition: .5s
+        &:hover
+            transform: scale(1.1)
+    &__box
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 100%
+        text-align: center
+
+.title-first
+    color: $color-white
+    &__main
+        display: block
+        text-transform: uppercase
+        font-size: 5rem
+        font-weight: 800
+        letter-spacing: 1rem
+        line-height: 6rem
+        margin-bottom: 1rem
+        animation-name: LeftToRight
+        animation-duration: 4s
+        animation-delay: 1s
+        /* плавность */
+        animation-timing-function: ease
+        /* нормализует анимацию */
+        backface-visibility: hidden
+    &__secondary
+        display: block
+        margin-bottom: 5rem
+        font-size: 4rem
+        font-weight: 200
+        letter-spacing: .5rem
+        line-height: 4.8rem
+        animation-name: RightToLeft
+        animation-duration: 4s
+        animation-delay: 1s
+        animation-timing-function: ease
+        backface-visibility: hidden
+
+@keyframes LeftToRight
+    0%
+        opacity: 0
+        transform: translateX(-10rem)
+    80%
+        transform: translateX(1rem)
+    100%
+        opacity: 1
+        transform: translateX(0)
+
+@keyframes RightToLeft
+    0%
+        opacity: 0
+        transform: translateX(10rem)
+    80%
+        transform: translateX(-1rem)
+    100%
+        opacity: 1
+        transform: translateX(0)
+
+@mixin style-link
+    text-transform: uppercase
+    text-decoration: none
+
+.btn
+    &, &:link, &:visited
+        @include style-link
+        color: $color-grey
+        background: $color-white
+        padding: 1.5rem 2.5rem
+        border: none
+        border-radius: 5rem
+        font-weight: 600
+        font-size: 2rem
+        line-height: 2.4rem
+        letter-spacing: .5rem
+        display: inline-block
+        transition: all .3s
+        position: relative
+        box-shadow: $box-shadow
+    &:hover
+        transform: translateY(-.5rem)
+        &::after
+            opacity: 0
+            transform: scaleX(1.5) scaleY(1.7)
+    &:active
+        transform: translateY(-.2rem)
+        color: $color-grey-dark
+        background: $color-btn-active
+        box-shadow: $inner-shadow
+    &::after
+        content: ""
+        background: $color-white
+        width: 100%
+        height: 100%
+        border-radius: 5rem
+        display: inline-block
+        position: absolute
+        top: 0
+        left: 0
+        z-index: -1
+        transition: all .5s
+    &_animated
+        animation: BtnToUP .5s ease-out .7s
+        // animation-name: BtnToUP
+        // animation-duration: 5s
+        // animation-timing-function: ease-out
+        // animation-delay: .7s
+        backface-visibility: hidden
+        //анимация после периода задержки в .7s
+        animation-fill-mode: backwards
+    &_brown
+        color: $color-white
+        background: $color-brown-dark
+        transition: all .3s
+        &:active
+            color: $color-brown-dark
+        &::after
+            background: $color-brown-dark
+
+@keyframes BtnToUP
+    0%
+        opacity: 0
+        transform: translateY(5rem)
+    100%
+        opacity: 1
+        transform: translateY(0)
+
+.section-about
+    text-align: center
+
+.title-second
+    @include color-gradient
+    text-align: center
+    font-size: 3.6rem
+    letter-spacing: 1rem
+    text-transform: uppercase
+    font-weight: 800
+    transition: all .7s
+    backface-visibility: hidden
+    text-shadow: $shadow-h2
+    position: relative
+    display: inline-block
+    &::after
+        content: ''
+        position: absolute
+        width: 100%
+        transform: scaleX(0)
+        height: 2px
+        bottom: 0
+        left: 0
+        background-color: $color-brown-light
+        transform-origin: bottom right
+        transition: transform 0.5s ease-out
+        margin-bottom: -1rem
+    &:hover
+        &::after
+            transform: scaleX(1)
+            transform-origin: bottom left
+    &_white
+        color: $color-white
+        &::after
+            background-color: $color-white
+
+.title-third
+    font-size: 2rem
+    font-weight: 700
+    letter-spacing: .2rem
+    color: $color-grey
+    text-transform: uppercase
+    margin-bottom: 1rem
+    transition: .5s
+    &:hover
+        color: $color-grey-dark
+
+.paragraph
+    font-size: 1.6rem
+    font-weight: 400
+    letter-spacing: .2rem
+    color: $color-grey
+    line-height: 140%
+
+.btn-text
+    border-radius: .3rem
+    font-weight: 700
+    text-decoration: none
+    padding: 1rem
+    color: $color-brown-dark
+    border-bottom: 1px solid $color-brown-light
+    transition: all .7s
+    display: inline-block
+    &:hover
+        color: $color-white
+        background: $color-brown-light
+        box-shadow: $box-shadow
+        transform: translateY(-.2rem)
+    &:active
+        transform: translateY(.2rem)
+        background: $color-brown-dark
+        box-shadow: $inner-shadow
+
+.wrapper
+    &__text
+        width: 50%
+        text-align: left
+        &:hover .title-third
+            color: $color-grey-dark
+    &__imgs
+        width: 50%
+
+.composition
+    position: relative
+    &__photo
+        width: 55%
+        box-shadow: $box-shadow
+        border-radius: .5rem
+        position: absolute
+        z-index: 10
+        transition: .5s
+        backface-visibility: hidden
+        filter: brightness(.9)
+        &_n1
+            top: 0rem
+            left: 3rem
+        &_n2
+            top: 9rem
+            right: 1rem
+        &_n3
+            top: 17rem
+            left: 7rem
+        &:hover
+            transform: scale(1.05)
+            z-index: 20
+            filter: brightness(1.02)
+    &:hover &__photo:not(:hover)
+        transform: scale(.95)
+
+.section-adventure
+    height: 73.1rem
+    display: flex
+    align-items: center
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../img/background-2.jpg) center / cover no-repeat
+    clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%)
+
+.adventure-card
+    background: rgba($color-white, .8)
+    width: 24rem
+    border-radius: .5rem
+    padding: 2.5rem
+    display: flex
+    flex-direction: column
+    text-align: center
+    justify-content: center
+    box-shadow: $box-shadow
+    transition: .5s
+    &:hover
+        transform: scale(1.05)
+        background: $color-white
+    &__icon
+        @include color-gradient
+        font-size: 6.3rem
+    &:hover &__icon
+        background: $color-brown-dark
+        -webkit-background-clip: text
+        color: transparent
+    &:hover .title-third
+        color: $color-grey-dark
+
+.section-tour
+    text-align: center
+
+.card-tour
+    width: 34.2rem
+    height: 52rem
+    perspective: 150rem
+    -moz-perspective: 150rem
+    position: relative
+    &__side
+        position: absolute
+        height: 52rem
+        transition: all .9s ease
+        top: 0
+        left: 0
+        width: 100%
+        backface-visibility: hidden
+        box-shadow: $box-shadow
+        border-radius: .5rem
+        overflow: hidden
+        &_front
+            background: $color-white
+        &_back
+            background: $color-gradient-120
+            transform: rotateY(180deg)
+    &:hover &__side_front
+        transform: rotateY(-180deg)
+    &:hover &__side_back
+        transform: rotateY(0deg)
+
+    &__img
+        height: 24.5rem
+        background-blend-mode: hard-light
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%)
+        &_1
+            background: $color-brown-light url(../img/card-1.jpg) center / cover no-repeat
+        &_2
+            background: $color-brown-light url(../img/card-2.jpg) center / cover no-repeat
+        &_3
+            background: $color-brown-light url(../img/card-3.jpg) center / cover no-repeat
+    &__title
+        position: absolute
+        top: 17rem
+        right: 0rem
+        text-align: right
+        font-size: 2.8rem
+        font-weight: 300
+        letter-spacing: .2rem
+        text-transform: uppercase
+        color: $color-white
+        padding: 1.5rem 0rem
+        line-height: 150%
+        span
+            background: $color-gradient-90
+            padding: .7rem 1.5rem
+    &__txt
+        ul
+            list-style: none
+            text-align: center
+            li
+                font-weight: 700
+                text-decoration: underline
+                &:not(:last-child)
+                    margin-bottom: 2rem
+
+    &__back-info
+        height: 52rem
+        padding: 10rem 3.2rem
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        text-align: center
+        align-items: center
+        &__text
+            color: $color-white
+            text-transform: uppercase
+            font-weight: 500
+            font-size: 1.6rem
+            letter-spacing: .2rem
+            &-value
+                font-size: 6rem
+
+.section-feedback
+    position: relative
+    &__info
+        flex-direction: column
+        align-items: center
+
+.bg-video
+    @include video-gradient
+    z-index: -2
+    object-fit: cover
+
+.bg-gradient
+    @include video-gradient
+    z-index: -1
+    background: $color-gradient-black
+
+.feedback-card
+    width: 95%
+    background: rgba($color-white, .8)
+    box-shadow: $box-shadow
+    padding: 5rem 18rem
+    clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%)
+    border-radius: .5rem
+    transition: all .7s
+    &__img
+        width: 15rem
+        height: 15rem
+        border-radius: 100%
+        margin-right: 4rem
+        float: left
+        shape-outside: circle(50% at 50% 50%)
+        -webkit-shape-outside: circle(50% at 50% 50%)
+        overflow: hidden
+        position: relative
+        img
+            height: 100%
+            transform: scale(1.2)
+            transition: all .7s
+    &__name
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -20%)
+        font-size: 2.4rem
+        color: $color-white
+        text-align: center
+        opacity: 0
+        transition: all .7s
+    &:hover &__name
+        transform: translate(-50%, -50%)
+        opacity: 1
+    &:hover img
+        transform: scale(1)
+        filter: blur(.3rem) brightness(.7)
+    &:hover .title-third
+        color: $color-grey-dark
+
+.section-book
+    padding: 10rem 0
+    background: $color-gradient-90
+
+.book
+    height: 100%
+    background: $color-book
+    box-shadow: $box-shadow
+    border-radius: .5rem
+    overflow: hidden
+    padding: 5rem
+    &-title
+        text-align: left
+
+.form
+    &__input
+        width: 40%
+        padding: 1.2rem 2.2rem
+        text-align: left
+        color: $color-black
+        border: none
+        border-radius: .3rem
+        border-bottom: .3rem solid transparent
+        box-shadow: 2px 2px 2px #cdcaca80
+        transition: all .5s
+        &:hover
+            box-shadow: $box-shadow
+        &:focus
+            outline: none
+            border-bottom: .3rem solid $color-valid-form
+        &:focus:invalid
+            border-bottom: .3rem solid $color-invalid-form
+    &__label
+        display: block
+        transition: all .5s
+        margin: 1rem 0 0 1.5rem
+    &__input:placeholder-shown + &__label
+        opacity: 0
+        visibility: hidden
+        transform: translateY(-2rem)
+
+    &__group-radio
+        width: 25%
+        display: inline-block
+    &__input-radio
+        display: none
+    &__label-radio
+        cursor: pointer
+        position: relative
+        padding-left: 4rem
+        font-weight: 500
+    &__button-radio
+        width: 2.5rem
+        height: 2.5rem
+        border-radius: 50%
+        border: .3rem solid $color-brown-dark
+        display: block
+        position: absolute
+        top: -.4rem
+        left: 0rem
+        &::after
+            content: ""
+            display: block
+            width: 1.5rem
+            height: 1.5rem
+            border-radius: 50%
+            background: $color-brown-dark
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            opacity: 0
+            transition: all .3s
+
+    &__input-radio:checked ~ &__label-radio &__button-radio::after
+        opacity: 1
+
+.footer
+    background: $color-grey-dark
+    padding: 8rem 0rem
+    display: flex
+    align-items: center
+    flex-direction: column
+    &__logo
+        width: 10rem
+    &__list
+        list-style: none
+        width: 87rem
+        display: flex
+        justify-content: space-between
+    &__link
+        &:link, &:visited
+            color: $color-white
+            text-decoration: none
+            text-transform: uppercase
+            font-weight: 300
+            position: relative
+            z-index: 1
+        &::after
+            content: ""
+            background: $color-gradient-90
+            position: absolute
+            top: -7px
+            right: -1rem
+            bottom: -7px
+            left: -1rem
+            z-index: -1
+            transform: scaleX(0)
+            transform-origin: bottom right
+            transition: transform 0.7s ease
+        &:hover::after
+            z-index: -1
+            transform: scaleX(1)
+            transform-origin: bottom left
+    img
+        transition: all .7s
+        &:hover
+            transform: scale(1.1)
+
+.navigation
+    &__toggle
+        display: none
+    &__button
+        background: $color-white
+        width: 7rem
+        height: 7rem
+        border-radius: 50%
+        position: fixed
+        top: 9rem
+        right: 9rem
+        z-index: 27
+        text-align: center
+        cursor: pointer
+        box-shadow: $box-shadow
+    &__background
+        width: 5rem
+        height: 5rem
+        border-radius: 50%
+        background: radial-gradient($color-brown-dark, $color-brown-light)
+        position: fixed
+        top: 10rem
+        right: 10rem
+        z-index: 25
+        transition: all .7s
+    &__nav
+        height: 100vh
+        width: 100%
+        position: fixed
+        top: 0
+        right: 0
+        z-index: 26
+        opacity: 0
+        width: 0
+        transition: all .4s cubic-bezier(0.68, -0.6, 0.32, 1.6)
+    &__list
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 100%
+    &__item
+        text-align: center
+        &:not(:last-child)
+            margin-bottom: 6rem
+    &__link
+        &:link, &:visited
+            color: $color-white
+            font-size: 4rem
+            font-weight: 300
+            letter-spacing: .5rem
+            text-decoration: none
+            text-transform: uppercase
+            background: linear-gradient(120deg, transparent 50%, $color-white 50%)
+            background-size: 220%
+            padding: 1rem 2rem
+            transition: all .7s
+            display: inline-block
+        &:hover, &:active
+            background-position: 100%
+            color: $color-brown-dark
+            transform: translateX(1rem)
+    &__toggle:checked ~ &__background
+        transform: scale(80)
+    &__toggle:checked ~ &__nav
+        opacity: 1
+        width: 100%
+    &__icon
+        position: relative
+        margin-top: 3.5rem
+        &,
+        &::before,
+        &::after
+            width: 3rem
+            height: .2rem
+            background: $color-black
+            display: inline-block
+        &::before,
+        &::after
+            content: ""
+            position: absolute
+            left: 0
+            transition: all .2s
+        &::before
+            top: -.8rem
+        &::after
+            top: .8rem
+    &__button:hover &__icon::before
+        top: -1rem
+    &__button:hover &__icon::after
+        top: 1rem
+
+    &__toggle:checked + &__button &__icon
+        background: transparent
+    &__toggle:checked + &__button &__icon::before
+        top: 0
+        transform: rotate(135deg)
+    &__toggle:checked + &__button &__icon::after
+        top: 0
+        transform: rotate(-135deg)
+        
+
+// Медиа запросы
+
+// Мал комп или горизонтальный планшет
+@media (max-width: 1199px)
+    .container
+        width: 960px
+
+    html
+        font-size: 56.25%
+
+    .paragraph
+        font-size: 1.5rem
+
+    .title-first__main
+        font-size: 4rem
+
+    .title-first__secondary
+        font-size: 3.5rem
+        margin-bottom: 3.5rem
+
+    .title-second
+        font-size: 4rem
+
+    .container_size
+        max-width: 90rem
+
+    .adventure-card
+        width: 21rem
+
+    .title-third
+        font-size: 1.7rem
+
+    .card-tour
+        width: 27rem
+        &__back-info__text-value
+            font-size: 5.5rem
+
+    .feedback-card
+        padding: 3rem 11rem
+
+    .book
+        padding: 3.5rem
+
+    .form__label-radio
+        font-size: 2rem
+
+    .form__group
+        &-radio
+            width: 40%
+            display: block
+
+    .form__group-radio:not(:last-child)
+        margin-bottom: 3rem
+
+// Вертикальный планшет
+@media (max-width: 991px)
+    .container
+        width: 720px
+
+    html
+        font-size: 34%
+
+    .title-second
+        font-size: 2.8rem
+
+    .title-third
+        font-size: 1.9rem
+        margin-bottom: 1.5rem
+
+    .paragraph
+        font-size: 1.6rem
+
+    .form__input
+        width: 50%
+
+// Горизонтальный тлф
+@media (max-width: 767px)
+    .container
+        width: 540px
+
+    html
+        font-size: 33%
+
+    .margin-bottom-80px
+        margin-bottom: 5rem
+
+    .title-second
+        font-size: 3.2rem
+
+    .title-third
+        font-size: 2.7rem
+
+    .paragraph
+        font-size: 2.5rem
+
+    .header__logo
+        width: 7rem
+        height: 8rem
+
+    .container_wrapper
+        flex-direction: column
+        align-items: center
+
+    .wrapper
+        &__text
+            width: 90%
+        &__imgs
+            width: 90%
+            margin-bottom: 50rem
+
+    .section-adventure
+        height: 175rem
+
+    .adventure-card
+        width: 85%
+        margin-bottom: 5rem
+
+    .card-tour
+        width: 85%
+        height: 70rem
+        &__side
+            height: 70rem
+        &__back-info
+            height: 70rem
+            &__text
+                font-size: 3rem
+                &-value
+                    font-size: 6rem
+        &__img
+            height: 60%
+            margin-bottom: .3rem
+        &__title
+            top: 35rem
+            font-size: 3rem
+        &__txt
+            ul
+                margin: 0 auto
+                width: 75%
+                text-align: center
+                li
+                    line-height: 3rem
+    .card-tour:not(:last-child)
+        margin-bottom: 5rem
+
+    .btn, .btn:link, .btn:visited
+        padding: 2rem 3rem
+        font-size: 2.7rem
+
+    .feedback-card
+        text-align: center
+        padding: 3rem 7rem
+        &__img
+            float: none
+            width: 20rem
+            height: 20rem
+            margin: 0 auto
+            margin-bottom: 3rem
+
+    .footer
+        &__logo
+            margin-bottom: 7rem
+        &__list
+            width: 55rem
+            flex-wrap: wrap
+            li
+                margin-bottom: 3rem
+        &__link
+            &:link, &:visited
+                font-size: 2rem
+
+// Вертикальный тлф
+@media (max-width: 575px)
+    .container
+        width: 100%
+
+    html
+        font-size: 30%
+
+    body
+        padding: 1rem
+
+    .title-second
+        font-size: 2.9rem
+        line-height: 4rem
+        &::after
+            display: none
+
+    .title-third
+        font-size: 2.5rem
+        line-height: 4rem
+
+    .wrapper__imgs
+        width: 100%
+        margin-bottom: 65%
+
+    .section-adventure
+        align-items: unset
+        clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%)
+        height: 200rem
+        padding: 15% 0
+        margin-bottom: 2rem
+
+    .container_wrapper
+        justify-content: space-around
+
+    .adventure-card
+        margin-bottom: unset
+
+    .card-tour__title
+        top: 33rem
+        font-size: 2.5rem
+
+    .book
+        background: linear-gradient(105deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9) 40%, rgba(195, 149, 106, 0.2) 100%, rgba(195, 149, 106, 0.2)), url(../img/form-background.jpg) center/cover no-repeat
+        padding: 5rem
+        text-align: center
+        &__form
+            text-align: left
+        &-title
+            text-align: center
+
+    .form
+        &__input
+            width: 100%
+            margin-bottom: 2rem
+        &__label
+            margin: 1rem 0 0 1rem
+            width: 100%
+        &__group-radio
+            width: 100%
+            &:not(:last-child)
+                margin-bottom: 5rem
+        &__label-radio
+            font-size: 3rem
+            padding-left: 7rem
+        &__button-radio
+            width: 3.5rem
+            height: 3.5rem
+            border: 0.5rem solid #A14F03
+        &__group
+            button
+                margin-left: 2rem
+
+    .footer__list
+        width: 100%
+        flex-direction: column
+        align-items: center
+        padding: 0 4rem
+
+    .card-tour
+        height: auto
+        box-shadow: $box-shadow
+        &__side
+            position: unset
+            &_front
+                padding-bottom: 13rem
+                box-shadow: none
+            &_back
+                transform: none
+                clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%)
+                padding-top: 4rem
+                margin-top: -10rem
+                height: auto
+        &__back-info
+            height: 85%
+            padding: 6rem
+            display: block
+            &__text
+                margin-bottom: 5rem
+        &__title 
+            top: 25rem
+        &:hover &__side_front
+            transform: rotateY(0deg)
